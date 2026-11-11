@@ -1,0 +1,5 @@
+.terminal-body { min-height: 260px; padding: 14px; background: color-mix(in srgb, var(--background) 78%, black); color: var(--highlight); font-family: monospace; font-size: 0.86rem; }
+.terminal-output { max-height: 220px; overflow: auto; margin: 0; white-space: pre-wrap; }
+.terminal-form { display: flex; gap: 8px; margin-top: 10px; }
+.terminal-form label { color: var(--orange); }
+.terminal-input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--highlight); font-family: monospace; }

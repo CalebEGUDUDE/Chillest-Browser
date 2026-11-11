@@ -1,0 +1,1 @@
+document.querySelector('#about-version').textContent = 'Chillest OS · version 1.0';

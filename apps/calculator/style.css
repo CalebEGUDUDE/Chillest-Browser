@@ -1,0 +1,6 @@
+.calculator { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+.calculator-display { grid-column: 1 / -1; min-height: 60px; margin-bottom: 4px; padding: 10px; overflow: hidden; border: 1px solid var(--orange); background: color-mix(in srgb, var(--background) 84%, black); color: var(--ink); font-size: 1.8rem; text-align: right; }
+.calc-key { min-height: 48px; border: 1px solid color-mix(in srgb, var(--highlight) 55%, transparent); background: var(--background); color: var(--ink); cursor: pointer; }
+.calc-key:hover, .calc-key.operator { background: var(--surface-raised); color: var(--highlight); }
+.calc-key.equals { background: var(--orange); color: var(--background); }
+.calc-zero { grid-column: span 2; }

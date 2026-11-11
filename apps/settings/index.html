@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>System Settings</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../theme.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="settings-header">
+        <div><h1>Settings</h1><p class="muted">Make the desktop feel like yours.</p></div>
+    </header>
+    <main class="settings-grid">
+        <section class="setting-block profile-block">
+            <h2>Profile</h2>
+            <form id="profile-form">
+                <label for="desktop-name-input">Desktop name</label>
+                <div class="profile-row"><input class="app-input" id="desktop-name-input" type="text" maxlength="32" autocomplete="given-name" placeholder="Your name"><button class="app-button" type="submit">Save name</button></div>
+            </form>
+        </section>
+        <section class="setting-block appearance-block">
+            <h2>Color palette</h2>
+            <label class="color-row" for="background-color">Desktop<input id="background-color" type="color"></label>
+            <label class="color-row" for="accent-color">Accent<input id="accent-color" type="color"></label>
+            <label class="color-row" for="highlight-color">Highlight<input id="highlight-color" type="color"></label>
+            <button class="app-button" id="reset-theme" type="button">Reset colors</button>
+            <label for="background-style">Background style</label>
+            <select class="app-select" id="background-style"><option value="gradient">Chill gradient</option><option value="grid">Grid</option><option value="custom">Custom wallpaper</option></select>
+            <label for="wallpaper-text">Wallpaper text</label>
+            <select class="app-select" id="wallpaper-text"><option value="none">None</option><option value="time">Time</option><option value="time-name">Time and name</option><option value="name">Name</option></select>
+            <p class="muted">Choose a built-in background or use your own wallpaper.</p>
+        </section>
+        <section class="setting-block wallpaper-block">
+            <h2>Wallpaper</h2>
+            <label for="wallpaper-url">Wallpaper image</label>
+            <input class="app-input" id="wallpaper-url" type="url" placeholder="https://example.com/image.jpg">
+            <div class="setting-actions"><button class="app-button" id="set-wallpaper" type="button">Use image URL</button><label class="app-button upload-label">Choose a file<input id="wallpaper-file" type="file" accept="image/*"></label><button class="app-button" id="clear-wallpaper" type="button">Clear</button></div>
+            <p class="muted">Local images up to 2 MB.</p>
+        </section>
+        <section class="setting-block">
+            <h2>Dock</h2>
+            <label for="dock-location">Dock position</label>
+            <select class="app-select" id="dock-location"><option value="bottom">Bottom</option><option value="left">Left</option><option value="right">Right</option></select>
+        </section>
+        <section class="setting-block reset-block">
+            <h2>Setup</h2>
+            <button class="app-button" id="reset-data" type="button">Reset data &amp; replay onboarding</button>
+            <p class="muted">Clears saved Chillest OS settings and notes.</p>
+        </section>
+        <p class="muted settings-status" id="settings-status" aria-live="polite">Settings are stored in this browser.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../theme.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main class="editor-app">
+        <header class="editor-toolbar">
+            <div class="language-tabs" role="tablist" aria-label="Code files">
+                <button class="language-tab active" id="tab-html" type="button" role="tab" aria-selected="true" data-language="html">HTML</button>
+                <button class="language-tab" id="tab-css" type="button" role="tab" aria-selected="false" data-language="css">CSS</button>
+                <button class="language-tab" id="tab-javascript" type="button" role="tab" aria-selected="false" data-language="javascript">JavaScript</button>
+            </div>
+            <button class="app-button preview-toggle" id="preview-toggle" type="button" aria-expanded="true">Hide preview</button>
+        </header>
+        <div class="editor-workspace" id="editor-workspace">
+            <section class="source-pane" aria-label="Source code">
+                <div class="file-toolbar"><span id="file-name">index.html</span><button class="app-button run-button" id="refresh-preview" type="button">Refresh</button></div>
+                <div class="source-editor">
+                    <pre class="line-numbers" id="line-numbers" aria-hidden="true">1</pre>
+                    <textarea id="code-input" aria-label="HTML source code" autocomplete="off" autocapitalize="off" spellcheck="false" wrap="off"></textarea>
+                </div>
+            </section>
+            <aside class="preview-sidebar" id="preview-sidebar" aria-label="Live preview">
+                <header class="preview-header"><h2>Preview</h2><span>LIVE</span></header>
+                <iframe id="preview-frame" title="Code preview" sandbox="allow-scripts"></iframe>
+            </aside>
+        </div>
+        <p class="editor-status" id="editor-status" aria-live="polite">Ready</p>
+    </main>
+</body>
+</html>

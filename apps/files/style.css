@@ -1,0 +1,7 @@
+.file-path { margin-top: 0; }
+.file-list { display: grid; gap: 8px; }
+.file-entry { display: flex; width: 100%; align-items: center; gap: 10px; padding: 10px; border: 1px solid color-mix(in srgb, var(--highlight) 40%, transparent); background: color-mix(in srgb, var(--background) 55%, transparent); color: var(--ink); text-align: left; cursor: pointer; }
+.file-entry:hover, .file-entry:focus-visible { border-color: var(--orange); background: var(--surface); }
+.file-entry span:first-child { font-size: 1.3rem; }
+.file-entry small { margin-left: auto; color: var(--muted); font-family: sans-serif; }
+.file-status { min-height: 1.2em; }

@@ -1,0 +1,3 @@
+.about-app { max-width: 460px; }
+.about-mark { display: grid; width: 48px; height: 48px; margin-bottom: 20px; place-items: center; border: 2px solid var(--orange); background: var(--surface); color: var(--highlight); font-size: 1.5rem; }
+.about-app p { line-height: 1.65; }

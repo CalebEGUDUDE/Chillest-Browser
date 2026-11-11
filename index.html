@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#06384b">
+    <title>Chillest OS</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <button class="brand-button" type="button" aria-label="Open Chillest OS menu" data-open-app="about">
+            <span class="brand-mark" aria-hidden="true"><img src="assets/home.svg" alt=""></span>
+            <span>Chillest OS</span>
+        </button>
+        <div class="topbar-center" id="active-app">Desktop</div>
+        <div class="topbar-right">
+            <span class="battery-status" id="battery-status" aria-label="Battery level unavailable">
+                <img class="battery-icon" id="battery-icon" src="assets/battery-empty.svg" alt="" hidden>
+                <span id="battery-level">N/A</span>
+            </span>
+            <time id="clock" aria-label="Current time"></time>
+            <button class="top-icon-button" type="button" data-open-app="settings" aria-label="Open settings" title="Settings"><img src="assets/gear.svg" alt=""></button>
+        </div>
+    </header>
+
+    <main class="desktop" id="desktop">
+        <div class="wallpaper" aria-hidden="true">
+            <div class="wallpaper-image" id="wallpaper-image"></div>
+            <div class="wallpaper-grid"></div>
+        </div>
+        <section class="desktop-welcome" aria-label="Welcome">
+            <h1 id="desktop-name">FRIEND</h1>
+            <time id="wallpaper-time" aria-label="Current time on wallpaper"></time>
+        </section>
+        <nav class="desktop-shortcuts" aria-label="Desktop apps">
+            <button class="shortcut" type="button" data-open-app="notes"><span class="app-icon notes-icon"><img src="assets/edit.svg" alt=""></span><span>Notes</span></button>
+            <button class="shortcut" type="button" data-open-app="files"><span class="app-icon files-icon"><img src="assets/folder.svg" alt=""></span><span>Files</span></button>
+            <button class="shortcut" type="button" data-open-app="music"><span class="app-icon music-icon"><img src="assets/music.svg" alt=""></span><span>Music</span></button>
+        </nav>
+        <section class="window-layer" id="window-layer" aria-live="polite"></section>
+        <nav class="dock dock-bottom" id="dock" aria-label="Application dock">
+            <button class="dock-app" type="button" data-open-app="notes" aria-label="Open Notes" title="Notes"><span class="app-icon notes-icon"><img src="assets/edit.svg" alt=""></span><span class="dock-label">Notes</span><i></i></button>
+            <button class="dock-app" type="button" data-open-app="files" aria-label="Open Files" title="Files"><span class="app-icon files-icon"><img src="assets/folder.svg" alt=""></span><span class="dock-label">Files</span><i></i></button>
+            <button class="dock-app" type="button" data-open-app="calculator" aria-label="Open Calculator" title="Calculator"><span class="app-icon calc-icon"><img src="assets/calculator.svg" alt=""></span><span class="dock-label">Calculator</span><i></i></button>
+            <button class="dock-app" type="button" data-open-app="editor" aria-label="Open Code Editor" title="Code Editor"><span class="app-icon files-icon"><img src="assets/docs.svg" alt=""></span><span class="dock-label">Code Editor</span><i></i></button>
+            <button class="dock-app" type="button" data-open-app="music" aria-label="Open Music" title="Music"><span class="app-icon music-icon"><img src="assets/music.svg" alt=""></span><span class="dock-label">Music</span><i></i></button>
+            <button class="dock-app" type="button" data-open-app="terminal" aria-label="Open Terminal" title="Terminal"><span class="app-icon terminal-icon"><img src="assets/computer.svg" alt=""></span><span class="dock-label">Terminal</span><i></i></button>
+            <span class="dock-divider" aria-hidden="true"></span>
+            <button class="dock-app" type="button" data-open-app="settings" aria-label="Open Settings" title="Settings"><span class="app-icon settings-icon"><img src="assets/gear.svg" alt=""></span><span class="dock-label">Settings</span><i></i></button>
+        </nav>
+    </main>
+    <section class="onboarding-overlay" id="onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" hidden>
+        <div class="onboarding-panel">
+            <header class="onboarding-header">
+                <p class="onboarding-kicker">CHILLEST OS / FIRST RUN</p>
+                <p class="onboarding-count" id="onboarding-count">01 / 03</p>
+            </header>
+            <section class="onboarding-page" data-onboarding-page="0">
+                <h1 id="onboarding-title">What should we call you?</h1>
+                <p class="onboarding-copy">Your name will appear on the desktop.</p>
+                <label class="onboarding-name-label" for="onboarding-name">Your name</label>
+                <input class="onboarding-name" id="onboarding-name" type="text" maxlength="32" autocomplete="given-name" placeholder="Name" required>
+                <p class="onboarding-error" id="onboarding-error" aria-live="polite"></p>
+            </section>
+            <section class="onboarding-page" data-onboarding-page="1" hidden>
+                <h2 id="onboarding-title-settings">Settings</h2>
+                <p class="onboarding-copy">The desktop behind setup updates as you make changes.</p>
+                <div class="onboarding-control-grid">
+                    <section class="onboarding-setting-group">
+                        <h3>Color palette</h3>
+                        <label class="onboarding-setting-control">Desktop<input id="onboarding-background" type="color"></label>
+                        <label class="onboarding-setting-control">Accent<input id="onboarding-accent" type="color"></label>
+                        <label class="onboarding-setting-control">Highlight<input id="onboarding-highlight" type="color"></label>
+                    </section>
+                    <section class="onboarding-setting-group">
+                        <h3>Desktop</h3>
+                        <label class="onboarding-setting-control">Background style<select id="onboarding-background-style"><option value="gradient">Chill gradient</option><option value="grid">Grid</option><option value="custom">Custom wallpaper</option></select></label>
+                        <label class="onboarding-setting-control">Wallpaper text<select id="onboarding-wallpaper-text"><option value="none">None</option><option value="time">Time</option><option value="time-name">Time and name</option><option value="name">Name</option></select></label>
+                        <label class="onboarding-setting-control">Dock position<select id="onboarding-dock"><option value="bottom">Bottom</option><option value="left">Left</option><option value="right">Right</option></select></label>
+                    </section>
+                    <section class="onboarding-setting-group onboarding-wallpaper">
+                        <h3>Wallpaper</h3>
+                        <label class="onboarding-setting-control" for="onboarding-wallpaper-url">Wallpaper URL</label>
+                        <div class="onboarding-wallpaper-actions">
+                            <input id="onboarding-wallpaper-url" type="url" placeholder="https://example.com/image.jpg">
+                            <button class="onboarding-button secondary" id="onboarding-set-wallpaper" type="button">Use URL</button>
+                            <label class="onboarding-button secondary onboarding-upload">Choose file<input id="onboarding-wallpaper-file" type="file" accept="image/*"></label>
+                            <button class="onboarding-button secondary" id="onboarding-clear-wallpaper" type="button">Clear</button>
+                        </div>
+                    </section>
+                </div>
+                <p class="onboarding-settings-status" id="onboarding-settings-status" aria-live="polite"></p>
+            </section>
+            <section class="onboarding-page" data-onboarding-page="2" hidden>
+                <h2>Meet your apps</h2>
+                <ul class="onboarding-apps">
+                    <li><strong>About</strong><span>A quick hello from Chillest OS.</span></li>
+                    <li><strong>Notes</strong><span>Keep a thought or reminder close.</span></li>
+                    <li><strong>Files</strong><span>A small collection of sample files.</span></li>
+                    <li><strong>Calculator</strong><span>Handle a little everyday math.</span></li>
+                    <li><strong>Code Editor</strong><span>Write HTML, CSS, and JavaScript with a live preview.</span></li>
+                    <li><strong>Music</strong><span>A tiny player for a slower afternoon.</span></li>
+                    <li><strong>Terminal</strong><span>A few simple commands to try.</span></li>
+                </ul>
+            </section>
+            <footer class="onboarding-actions">
+                <button class="onboarding-button secondary" id="onboarding-back" type="button" hidden>Back</button>
+                <span class="onboarding-spacer"></span>
+                <button class="onboarding-button" id="onboarding-next" type="button">Continue</button>
+                <button class="onboarding-button" id="onboarding-finish" type="button" hidden>Finish setup</button>
+            </footer>
+        </div>
+    </section>
+</body>
+</html>
